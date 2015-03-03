@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Intermountain West NDFD Grids with Leaflet WebGL</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../gltest.css" />
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<script src="http://www.sumbera.com/gist/js/leaflet/canvas/L.CanvasOverlay.js"></script>
+		<script src="../ut-data/ut_lats.json" charset="utf-8"></script>
+		<script src="../ut-data/ut_lons.json" charset="utf-8"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="./imWest.js"></script>
+		
+		<!-- vertex shader -->
+		<script id="vshader" type="x-shader/x-vertex">
+			attribute vec4 aVertexPosition;
+			attribute vec4 aVertexColor;
+			
+			uniform mat4 uMVMatrix;
+
+			varying vec4 vColor;
+
+			void main() {
+				gl_Position = uMVMatrix * aVertexPosition;
+				vColor = aVertexColor;
+			}
+		</script>
+		
+		<!-- fragment shader -->
+		<script id="fshader" type="x-shader/x-fragment">
+			precision mediump float;
+			varying vec4 vColor;		
+			
+			void main() {
+				gl_FragColor = vec4(vColor[0],vColor[1],vColor[2],vColor[3]);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="map"></div>
+	</body>
+</html>
