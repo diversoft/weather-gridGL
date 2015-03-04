@@ -164,7 +164,7 @@ $(document).ready(function() {
 				   "<span class='varname'>Press A</span><br><br>"+
 				   "<span class='varname'><u>VARIABLE CONTROLS</u></span><br>"+
 				   "<span class='varname'>Cycle through the following list:</span><br>"+
-				   "<span class='varname'>Temperature, RH, Wind Speed</span><br><br>"+
+				   "<span class='varname'>Temperature, RH, Wind Speed, Precip</span><br><br>"+
 				   "<span class='varname'>To move forward:</span><br>"+
 				   "<span class='varname'>Press W</span><br><br>"+
 				   "<span class='varname'>To move backward:</span><br>"+

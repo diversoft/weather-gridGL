@@ -36,7 +36,7 @@
 
 <p>While not yet spun off into a distinct product, this is a workflow/set of examples to show two things:<br>
 	1) How to use python to convert data on a latitude/longitude grid into a format that can efficiently be stored and 	
-		transferred, as well as one that is compatible with WebGL visualization techniques.
+		transferred, as well as one that is compatible with WebGL visualization techniques.<br>
 	2) How to use WebGL, Javascript, and LeafletJS to display the converted gridded data over a slippy web map.</p>
 
 <h3>
@@ -52,8 +52,8 @@
 	storage and transfer options), and overlay them on a LeafletJS map.</p>
 
 <h3>
-<a id="rather-drive-stick" class="anchor" href="./simple.html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Example</h3>
-
+<a id="rather-drive-stick" href="./simple.html"><span class="octicon octicon-link"></span></a>Simple Example</h3>
+<img src="./images/simple.png" alt="Simple Example" height="620" width="620">
 <p>The simplest example I have put together is just a small domain (Wasatch Front, Utah) chunk of the 2.5km National Digital Forecast Database (NDFD) Grid. This should load quickly
 	on any browser/computer. The simple.py script that is used to create the dataset uses the latitude/longitude grid definitions to create the vertices
 	for the webGL scene. The temperature, relative humidity, wind speed, and accumulated precipitation data comes from grib2 files provided by the National Weather Service.
@@ -70,20 +70,20 @@
 </p><br>
 <p>When the data is acquired, the integer values are converted by the color scale dictionary to RGB values for each point. When new files are loaded (using the 'W' or 'D' keys to change variable),
 	only the colors are updated, not the vertices (which remain the same) for efficiency. When the screen is moved or the zoom is changed, the transform matrix is updated, not the vertices. This is
-	using code from Stanislav Sumbera<a href="https://github.com/Sumbera" class="user-mention">@Sumbera</a> from the <a href="http://blog.sumbera.com/2014/06/08/leaflet-webgl-many-points-rendering/">Leaflet
+	using code from Stanislav Sumbera (<a href="https://github.com/Sumbera" class="user-mention">@Sumbera</a>) from the <a href="http://blog.sumbera.com/2014/06/08/leaflet-webgl-many-points-rendering/">Leaflet
 	WebGL Many Points Rendering</a> example.
 </p>
 <h3>
-<a id="rather-drive-stick" class="anchor" href="./eastCoast.html" aria-hidden="true"><span class="octicon octicon-link"></span></a>East Coast Example</h3>
-
+<a id="rather-drive-stick" href="./eastCoast.html" ><span class="octicon octicon-link"></span></a>East Coast Example</h3>
+<img src="./images/eastCoast.png" alt="East Coast Example" height="620" width="620">
 <p>This example requires a bit more heavy lifting, but the WebGL should render within 0.1-0.5 seconds. Here we have a chunk of the NDFD grids covering much of the
 	East Coast of the United States. I have added some custom LeafletJS controls including a legend for each of the variable color bars, a time stamp for each forecast period,
 	instructions for the key controls in the bottom left, and the option not just to change variables, but to move forward and backward in time through the forecast periods (note
 	that because of the static nature of the dataset, the forecasts do not update. For a regularly-updating version, go <a href="http://home.chpc.utah.edu/~u0732636/webGL/NDFD_GLTest.html">here</a>).
 </p>
 <h3>
-<a id="rather-drive-stick" class="anchor" href="./imWest.html" aria-hidden="true"><span class="octicon octicon-link"></span></a>Intermountain West Example</h3>
-
+<a id="rather-drive-stick" href="./imWest.html" ><span class="octicon octicon-link"></span></a>Intermountain West Example</h3>
+<img src="./images/imWest.png" alt="Intermountain West Example" height="620" width="620">
 <p>This example is more for those with solid Internet speeds and a decent graphics card - the WebGL should render in about 0.35-1.0 seconds. Here we have a chunk of the NDFD grids covering the Intermountain
 	West region of the United States. All of the controls are identical to the East Coast example. 
 	For a regularly-updating version of this website, go <a href="http://home.chpc.utah.edu/~u0732636/webGL/utGLTest2.html">here</a>).
