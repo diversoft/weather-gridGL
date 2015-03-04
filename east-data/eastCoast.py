@@ -75,8 +75,8 @@ elif hour>=15 and hour<21:
 hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,39,42,45,48,51,54,57,60,63,66,69]
 phours = ['3-9','9-15','15-21','21-27','27-33','33-39','39-45','45-51','51-57','57-63','63-69','69-75']
 #rthours = ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
-ghei = 1028-463
-gwid = 854-167
+ghei = 1013-656
+gwid = 1950-1625
 outVars = ['temp','rh','wind','prec']
 #outVars = ['prec']
 for outVar in outVars:
@@ -109,12 +109,12 @@ for outVar in outVars:
 				dat = (dat*1.852)
 				
 			if j<1:
-				latsout = open('../ut-data/ut_lats.json','w')
-				lonsout = open('../ut-data/ut_lons.json','w')
+				latsout = open('./east_lats.json','w')
+				lonsout = open('./east_lons.json','w')
 				latsout.write('var lats=[')
 				lonsout.write('var lons=[')
-				rlats = lats[463:1028,167:854]*100
-				rlons = lons[463:1028,167:854]*100-36000
+				rlats = lats[656:1013,1625:1950]*100
+				rlons = lons[656:1013,1625:1950]*100-36000
 				for x in xrange(ghei-1):
 					for y in xrange(gwid):
 						latsout.write(str(int(rlats[x,y]))+','+str(int(rlats[x+1,y])))
@@ -124,7 +124,6 @@ for outVar in outVars:
 								latsout.write(',')
 								lonsout.write(',')
 							elif y == gwid-1:
-								#print 'Output Flat Triangle'
 								latsout.write(',')
 								lonsout.write(',')
 								latsout.write(str(int(rlats[x+1,y]))+','+str(int(rlats[x+1,0])))
@@ -139,14 +138,12 @@ for outVar in outVars:
 				lonsout.write('];')
 				latsout.close()
 				lonsout.close()
-			#print 'Lets give it a shot'	
-			#print alldat.shape
 
-			datout = open('../ut-data/ut_data-'+str(j)+'-'+outVar+'.json','w')
-			print 'Writing ut_data-'+str(j)+'-'+outVar+'.json'
-			rdat = dat[463:1028,167:854]
+			datout = open('./east_data-'+str(j)+'-'+outVar+'.json','w')
+			print 'Writing east_data-'+str(j)+'-'+outVar+'.json'
+			rdat = dat[656:1013,1625:1950]
 			if (outVar is 'rh'):
-				bdat = dewDat[463:1028,167:854]
+				bdat = dewDat[656:1013,1625:1950]
 				rdat[bdat>1e19] = 1e19
 			rflat = rcflat = np.ndarray(shape=(ghei-1,gwid+1))
 			rflat[:,:-1] = rdat[:-1,:]
@@ -174,9 +171,9 @@ for outVar in outVars:
 			output = p.stdout.read()
 			dat = np.frombuffer(output[-wid*hei*4::],dtype=np.float32).reshape(hei,wid)
 			dat = dat/100.
-			datout = open('../ut-data/ut_data-'+str(j)+'-'+outVar+'.json','w')
-			print 'Writing ut_data-'+str(j)+'-'+outVar+'.json'
-			rdat = dat[463:1028,167:854]
+			datout = open('./east_data-'+str(j)+'-'+outVar+'.json','w')
+			print 'Writing east_data-'+str(j)+'-'+outVar+'.json'
+			rdat = dat[656:1013,1625:1950]
 			print np.max(rdat[rdat<1e18])
 			rflat = rcflat = np.ndarray(shape=(ghei-1,gwid+1))
 			rflat[:,:-1] = rdat[:-1,:]

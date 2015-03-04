@@ -74,7 +74,6 @@ $(document).ready(function() {
 	var vertArray;
 	var colorArray;
 	var showVar = 'temp';
-	legSwitch(showVar);
 	holdUp = true;
 	$.ajax({
 		url: "./simple-data/simple-0-"+showVar+".json",
@@ -172,9 +171,9 @@ $(document).ready(function() {
 		var colorz = [];
 		var tstart = new Date();
 		if (showVar === 'prec') {
-			var getUrl = "./east-data/east_data-0-"+showVar+".json"
+			var getUrl = "./simple-data/simple-0-"+showVar+".json"
 		} else {
-			var getUrl = "./east-data/east_data-0-"+showVar+".json"
+			var getUrl = "./simple-data/simple-0-"+showVar+".json"
 		}
 		$.ajax({
 			url: getUrl,
