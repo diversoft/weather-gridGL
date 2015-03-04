@@ -246,7 +246,7 @@ $(document).ready(function() {
 	legSwitch(showVar);
 	holdUp = true;
 	$.ajax({
-		url: "../east-data/east_data-"+forecast+"-"+showVar+".json",
+		url: "./east-data/east_data-"+forecast+"-"+showVar+".json",
 		success: function(dat) {
 			if (showVar === 'prec') {
 				console.log('Success with east_data-'+pfcst+'-'+showVar+'.json');
@@ -413,9 +413,9 @@ $(document).ready(function() {
 		var colorz = [];
 		var tstart = new Date();
 		if (showVar === 'prec') {
-			var getUrl = "../east-data/east_data-"+pfcst+"-"+showVar+".json"
+			var getUrl = "./east-data/east_data-"+pfcst+"-"+showVar+".json"
 		} else {
-			var getUrl = "../east-data/east_data-"+forecast+"-"+showVar+".json"
+			var getUrl = "./east-data/east_data-"+forecast+"-"+showVar+".json"
 		}
 		$.ajax({
 			url: getUrl,
