@@ -74,7 +74,6 @@ $(document).ready(function() {
 	var vertArray;
 	var colorArray;
 	var showVar = 'temp';
-	legSwitch(showVar);
 	holdUp = true;
 	$.ajax({
 		url: "./simple-data/simple-0-"+showVar+".json",
